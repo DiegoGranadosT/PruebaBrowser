@@ -52,6 +52,24 @@ namespace PruebaTBrowser.Data.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "MedioPago",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: true),
+                    UpdatedUserId = table.Column<int>(type: "int", nullable: true),
+                    Nombre = table.Column<string>(type: "longtext", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedioPago", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Pais",
                 columns: table => new
                 {
@@ -88,6 +106,32 @@ namespace PruebaTBrowser.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vehiculo", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Factura",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: true),
+                    UpdatedUserId = table.Column<int>(type: "int", nullable: true),
+                    Fecha = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    MedioPagoId = table.Column<int>(type: "int", nullable: false),
+                    Valor = table.Column<float>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Factura", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Factura_MedioPago_MedioPagoId",
+                        column: x => x.MedioPagoId,
+                        principalTable: "MedioPago",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -182,6 +226,7 @@ namespace PruebaTBrowser.Data.Migrations
                     CorreoElectronico = table.Column<string>(type: "longtext", nullable: false),
                     Telefono = table.Column<string>(type: "longtext", nullable: false),
                     Genero = table.Column<string>(type: "longtext", nullable: false),
+                    Edad = table.Column<string>(type: "longtext", nullable: false),
                     EmpresaId = table.Column<int>(type: "int", nullable: false),
                     CiudadId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -272,7 +317,8 @@ namespace PruebaTBrowser.Data.Migrations
                     CreatedUserId = table.Column<int>(type: "int", nullable: true),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: true),
                     SolucitudId = table.Column<int>(type: "int", nullable: false),
-                    EstadoId = table.Column<int>(type: "int", nullable: false)
+                    EstadoId = table.Column<int>(type: "int", nullable: false),
+                    FacturaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -281,6 +327,12 @@ namespace PruebaTBrowser.Data.Migrations
                         name: "FK_Reserva_Estado_EstadoId",
                         column: x => x.EstadoId,
                         principalTable: "Estado",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Factura_FacturaId",
+                        column: x => x.FacturaId,
+                        principalTable: "Factura",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -313,6 +365,11 @@ namespace PruebaTBrowser.Data.Migrations
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Factura_MedioPagoId",
+                table: "Factura",
+                column: "MedioPagoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Preferencia_ClienteId",
                 table: "Preferencia",
                 column: "ClienteId");
@@ -326,6 +383,11 @@ namespace PruebaTBrowser.Data.Migrations
                 name: "IX_Reserva_EstadoId",
                 table: "Reserva",
                 column: "EstadoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reserva_FacturaId",
+                table: "Reserva",
+                column: "FacturaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reserva_SolucitudId",
@@ -356,7 +418,13 @@ namespace PruebaTBrowser.Data.Migrations
                 name: "Estado");
 
             migrationBuilder.DropTable(
+                name: "Factura");
+
+            migrationBuilder.DropTable(
                 name: "Solicitud");
+
+            migrationBuilder.DropTable(
+                name: "MedioPago");
 
             migrationBuilder.DropTable(
                 name: "Cliente");

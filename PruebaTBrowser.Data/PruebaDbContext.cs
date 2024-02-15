@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PruebaTBrowser.Data.Configurations;
 using PruebaTBrowser.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -21,14 +22,33 @@ namespace PruebaTBrowser.Data
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<Solicitud> Solicitud { get; set; }
         public DbSet<Vehiculo> Vehiculo { get; set; }
+        public DbSet<Factura> Factura { get; set; }
         public PruebaDbContext()
         {
-                
+
         }
 
         public PruebaDbContext(DbContextOptions<PruebaDbContext> options) : base(options)
         {
-                
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new MedioPagoConfiguration());
+            modelBuilder.ApplyConfiguration(new PaisConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartamentoConfiguration());
+            modelBuilder.ApplyConfiguration(new CiudadConfiguration());
+            modelBuilder.ApplyConfiguration(new EmpresaConfiguration());
+            modelBuilder.ApplyConfiguration(new ClienteConfiguration());
+            modelBuilder.ApplyConfiguration(new EstadoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new VehiculoConfiguration());
+            modelBuilder.ApplyConfiguration(new RentaConfiguration());
+            modelBuilder.ApplyConfiguration(new SolicitudConfiguration());
+            modelBuilder.ApplyConfiguration(new FacturaConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservaConfiguration());
+
         }
     }
 }

@@ -11,6 +11,6 @@ namespace PruebaTBrowser.Models.EntiityBases
     {
         public int SolucitudId { get; set; }
         public int EstadoId { get; set; }
-        public int MedioPagoId { get; set; }
+        public int FacturaId { get; set; }
     }
 }

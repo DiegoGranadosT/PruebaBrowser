@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PruebaTBrowser.Data;
 
@@ -10,9 +11,11 @@ using PruebaTBrowser.Data;
 namespace PruebaTBrowser.Data.Migrations
 {
     [DbContext(typeof(PruebaDbContext))]
-    partial class PruebaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240215045746_M2")]
+    partial class M2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

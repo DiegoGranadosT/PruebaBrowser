@@ -44,7 +44,7 @@ namespace PruebaTBrowser.Application.Feature.Estadisticas
                             ReservaViewModel reserva = new ReservaViewModel();
                             reserva.SolucitudId = int.Parse(reader["SolicitudId"].ToString());
                             reserva.EstadoId = int.Parse(reader["EstadoId"].ToString());
-                            reserva.MedioPagoId = int.Parse(reader["MedioPagoId"].ToString());
+                            reserva.FacturaId = int.Parse(reader["FacturaId"].ToString());
 
                             data.Add(reserva);
                         }
