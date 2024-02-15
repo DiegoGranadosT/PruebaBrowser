@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTBrowser.Server", "Server\PruebaTBrowser.Server.csproj", "{840A94A2-3B6A-4816-B9C4-2D7A613B273F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTBrowser.Client", "Client\PruebaTBrowser.Client.csproj", "{E786B2F0-9299-4320-93C8-7CBA358F7664}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTBrowser.Shared", "Shared\PruebaTBrowser.Shared.csproj", "{FBA9B697-D5D6-4E31-9C6E-CFB58E7C41CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTBrowser.Shared", "Shared\PruebaTBrowser.Shared.csproj", "{FBA9B697-D5D6-4E31-9C6E-CFB58E7C41CC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTBrowser.Application", "PruebaTBrowser.Application\PruebaTBrowser.Application.csproj", "{C98538FC-D8B7-4404-ACCE-BBDB81C415D9}"
 EndProject
@@ -15,20 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTBrowser.Data", "Prue
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTBrowser.Models", "PruebaTBrowser.Models\PruebaTBrowser.Models.csproj", "{0A015AC5-0C3C-4544-8B07-4CB95E55350D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTBrowser.Api", "PruebaTBrowser.Api\PruebaTBrowser.Api.csproj", "{41B60C17-F36E-4604-B9BA-BE76E8C4DA31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{840A94A2-3B6A-4816-B9C4-2D7A613B273F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{840A94A2-3B6A-4816-B9C4-2D7A613B273F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{840A94A2-3B6A-4816-B9C4-2D7A613B273F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{840A94A2-3B6A-4816-B9C4-2D7A613B273F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E786B2F0-9299-4320-93C8-7CBA358F7664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E786B2F0-9299-4320-93C8-7CBA358F7664}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E786B2F0-9299-4320-93C8-7CBA358F7664}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E786B2F0-9299-4320-93C8-7CBA358F7664}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FBA9B697-D5D6-4E31-9C6E-CFB58E7C41CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FBA9B697-D5D6-4E31-9C6E-CFB58E7C41CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA9B697-D5D6-4E31-9C6E-CFB58E7C41CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +35,10 @@ Global
 		{0A015AC5-0C3C-4544-8B07-4CB95E55350D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A015AC5-0C3C-4544-8B07-4CB95E55350D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A015AC5-0C3C-4544-8B07-4CB95E55350D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B60C17-F36E-4604-B9BA-BE76E8C4DA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B60C17-F36E-4604-B9BA-BE76E8C4DA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B60C17-F36E-4604-B9BA-BE76E8C4DA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B60C17-F36E-4604-B9BA-BE76E8C4DA31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,5 +14,6 @@ namespace PruebaTBrowser.Models.EntiityBases
         public string CorreoElectronico { get; set; }
         public string Telefono { get; set; }
         public string Genero { get; set; }
+        public string Edad { get; set; }
     }
 }
