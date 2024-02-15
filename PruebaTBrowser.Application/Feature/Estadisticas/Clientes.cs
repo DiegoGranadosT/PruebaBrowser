@@ -50,6 +50,7 @@ namespace PruebaTBrowser.Application.Feature.Estadisticas
                             cliente.Genero = reader["Genero"].ToString();
                             cliente.EmpresaId = int.Parse(reader["EmpresaId"].ToString());
                             cliente.CiudadId = int.Parse(reader["CiudadId"].ToString());
+                            cliente.Id = int.Parse(reader["Id"].ToString());
 
                             clientes.Add(cliente);
                         }

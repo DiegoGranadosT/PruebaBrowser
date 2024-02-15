@@ -27,7 +27,7 @@ namespace PruebaTBrowser.Application.Feature.Estadisticas
         {
             List<ReservaViewModel> data = new List<ReservaViewModel>();;
 
-            string query = $"SELECT r.* FROM reserva r INNER JOIN estado e ON e.Id = r.estadoId WHERE r.Id = '{request.EstadoId}'";
+            string query = $"SELECT r.* FROM reserva r INNER JOIN estado e ON e.Id = r.estadoId WHERE e.Id = '{request.EstadoId}'";
 
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
@@ -42,9 +42,10 @@ namespace PruebaTBrowser.Application.Feature.Estadisticas
                         while (reader.Read())
                         {
                             ReservaViewModel reserva = new ReservaViewModel();
-                            reserva.SolucitudId = int.Parse(reader["SolicitudId"].ToString());
+                            reserva.SolucitudId = int.Parse(reader["SolucitudId"].ToString());
                             reserva.EstadoId = int.Parse(reader["EstadoId"].ToString());
                             reserva.FacturaId = int.Parse(reader["FacturaId"].ToString());
+                            reserva.Id = int.Parse(reader["Id"].ToString());
 
                             data.Add(reserva);
                         }
